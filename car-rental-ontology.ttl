@@ -1,0 +1,457 @@
+@prefix : <https://purl.org/gufo/tutorial/car-rental/1.0/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://purl.org/gufo/tutorial/car-rental/1.0> .
+
+<https://purl.org/gufo/tutorial/car-rental/1.0> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/agePhase
+:agePhase rdf:type owl:ObjectProperty ;
+          rdfs:domain :Person ;
+          rdfs:range :AgePhase .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/color
+:color rdf:type owl:ObjectProperty ;
+       rdfs:domain :Car ;
+       rdfs:range :Color .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/condition
+:condition rdf:type owl:ObjectProperty ;
+           rdfs:domain :Car ;
+           rdfs:range :CarCondition .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesCustomer
+:involvesCustomer rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :CarRental ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( :Organization
+                                             :Person
+                                           )
+                             ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesEmployee
+:involvesEmployee rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Employment ;
+                  rdfs:range :Person .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesEmployer
+:involvesEmployer rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Employment ;
+                  rdfs:range :Organization .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesOwnedCar
+:involvesOwnedCar rdf:type owl:ObjectProperty ;
+                  rdfs:domain :CarOwnership ;
+                  rdfs:range :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesOwner
+:involvesOwner rdf:type owl:ObjectProperty ;
+               rdfs:domain :CarOwnership ;
+               rdfs:range :CarAgency .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesRentalCar
+:involvesRentalCar rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :CarRental ;
+                   rdfs:range :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesSeller
+:involvesSeller rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :CarRental ;
+                rdfs:range :Person .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesSpouse
+:involvesSpouse rdf:type owl:ObjectProperty ;
+                rdfs:domain :Marriage ;
+                rdfs:range :Person .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/lifeStatus
+:lifeStatus rdf:type owl:ObjectProperty ;
+            rdfs:domain :Person ;
+            rdfs:range :LifeStatus .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/transmission
+:transmission rdf:type owl:ObjectProperty ;
+              rdfs:domain :Car ;
+              rdfs:range :TransmissionType .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/age
+:age rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Person ;
+     rdfs:range xsd:positiveInteger .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/includedDistanceKm
+:includedDistanceKm rdf:type owl:DatatypeProperty .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/modelYear
+:modelYear rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Car ;
+           rdfs:range xsd:positiveInteger .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain [ rdf:type owl:Class ;
+                    owl:unionOf ( :Organization
+                                  :Person
+                                )
+                  ] ;
+      rdfs:range xsd:string .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/price
+:price rdf:type owl:DatatypeProperty ;
+       rdfs:domain :CarRental ;
+       rdfs:comment "The amount to be paid by the customer in the rental."@en .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/salary
+:salary rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Employment ;
+        rdfs:range xsd:decimal ;
+        rdfs:comment "The salary, in Euros, defined in an employment agreement."@en .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/trunkVolume
+:trunkVolume rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Car ;
+             rdfs:range xsd:decimal ;
+             rdfs:comment "The volume, in liters, of the car's trunk."@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/AgePhase
+:AgePhase rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:oneOf ( :Adult
+                                            :Child
+                                            :Teenager
+                                          )
+                              ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Car
+:Car rdf:type owl:Class ;
+     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                       owl:onProperty :condition ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CarCondition
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty [ owl:inverseOf :involvesOwnedCar
+                                      ] ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CarOwnership
+                     ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/CarAgency
+:CarAgency rdf:type owl:Class ;
+           rdfs:subClassOf :Organization .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/CarCategory
+:CarCategory rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:oneOf ( :Compact
+                                               :FullSize
+                                               :MidSize
+                                               :SUV
+                                               :Sedan
+                                               :Van
+                                             )
+                                 ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/CarCondition
+:CarCondition rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:oneOf ( :BrokenCar
+                                                :OperationalCar
+                                              )
+                                  ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/CarOwnership
+:CarOwnership rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :involvesOwnedCar ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Car
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :involvesOwner ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :CarAgency
+                              ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/CarRental
+:CarRental rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :involvesCustomer ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass [ rdf:type owl:Class ;
+                                           owl:unionOf ( :Organization
+                                                         :Person
+                                                       )
+                                         ]
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :involvesRentalCar ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Car
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :involvesSeller ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Person
+                           ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Color
+:Color rdf:type owl:Class .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Employment
+:Employment rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :involvesEmployee ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Person
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :involvesEmployer ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Organization
+                            ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/LifeStatus
+:LifeStatus rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:oneOf ( :DeceasedPerson
+                                              :LivingPerson
+                                            )
+                                ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Man
+:Man rdf:type owl:Class ;
+     rdfs:subClassOf :Person ;
+     owl:disjointWith :Woman .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Marriage
+:Marriage rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :involvesSpouse ;
+                            owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Person
+                          ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Organization
+:Organization rdf:type owl:Class .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Person
+:Person rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( :Man
+                                            :Woman
+                                          )
+                            ] ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :agePhase ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :AgePhase
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :lifeStatus ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :LifeStatus
+                        ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/TransmissionType
+:TransmissionType rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:oneOf ( :Automatic
+                                                    :Manual
+                                                  )
+                                      ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Woman
+:Woman rdf:type owl:Class ;
+       rdfs:subClassOf :Person .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Adult
+:Adult rdf:type owl:NamedIndividual ,
+                :AgePhase .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Automatic
+:Automatic rdf:type owl:NamedIndividual ,
+                    :TransmissionType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Black
+:Black rdf:type owl:NamedIndividual ,
+                :Color .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Blue
+:Blue rdf:type owl:NamedIndividual ,
+               :Color .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/BrokenCar
+:BrokenCar rdf:type owl:NamedIndividual ,
+                    :CarCondition .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Child
+:Child rdf:type owl:NamedIndividual ,
+                :AgePhase .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Compact
+:Compact rdf:type owl:NamedIndividual ,
+                  :CarCategory .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/DeceasedPerson
+:DeceasedPerson rdf:type owl:NamedIndividual ,
+                         :LifeStatus .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/FullSize
+:FullSize rdf:type owl:NamedIndividual ,
+                   :CarCategory .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Green
+:Green rdf:type owl:NamedIndividual ,
+                :Color .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Grey
+:Grey rdf:type owl:NamedIndividual ,
+               :Color .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/LivingPerson
+:LivingPerson rdf:type owl:NamedIndividual ,
+                       :LifeStatus .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Manual
+:Manual rdf:type owl:NamedIndividual ,
+                 :TransmissionType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/MidSize
+:MidSize rdf:type owl:NamedIndividual ,
+                  :CarCategory .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/OperationalCar
+:OperationalCar rdf:type owl:NamedIndividual ,
+                         :CarCondition .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Red
+:Red rdf:type owl:NamedIndividual ,
+              :Color .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/SUV
+:SUV rdf:type owl:NamedIndividual ,
+              :CarCategory .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Sedan
+:Sedan rdf:type owl:NamedIndividual ,
+                :CarCategory .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Teenager
+:Teenager rdf:type owl:NamedIndividual ,
+                   :AgePhase .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Van
+:Van rdf:type owl:NamedIndividual ,
+              :CarCategory .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/White
+:White rdf:type owl:NamedIndividual ,
+                :Color .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AgePhase
+                :Car
+                :CarCondition
+                :CarOwnership
+                :CarRental
+                :Employment
+                :LifeStatus
+                :Marriage
+                :Organization
+                :Person
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :DeceasedPerson
+                        :LivingPerson
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
