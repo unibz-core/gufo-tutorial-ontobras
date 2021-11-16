@@ -20,16 +20,15 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/agePhase
-:agePhase rdf:type owl:ObjectProperty ;
+###  https://purl.org/gufo/tutorial/car-rental/1.0/ageGroup
+:ageGroup rdf:type owl:ObjectProperty ;
           rdfs:domain :Person ;
-          rdfs:range :AgePhase .
+          rdfs:range :AgeGroup .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/category
 :category rdf:type owl:ObjectProperty ;
           rdfs:domain :Car ;
-          rdfs:range :CarCategory ;
           rdfs:comment "Identifies the category that best describes the car."@en .
 
 
@@ -47,6 +46,12 @@ xsd:date rdf:type rdfs:Datatype .
            rdfs:comment "Identifies the current operational condition of the car."@en .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/1.0/fuelType
+:fuelType rdf:type owl:ObjectProperty ;
+          rdfs:domain :Car ;
+          rdfs:range :FuelType .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesCustomer
 :involvesCustomer rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
@@ -57,30 +62,6 @@ xsd:date rdf:type rdfs:Datatype .
                                            )
                              ] ;
                   rdfs:comment "Identifies the customer who rented the car, either a person or an organization."@en .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesEmployee
-:involvesEmployee rdf:type owl:ObjectProperty ;
-                  rdfs:domain :Employment ;
-                  rdfs:range :Person .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesEmployer
-:involvesEmployer rdf:type owl:ObjectProperty ;
-                  rdfs:domain :Employment ;
-                  rdfs:range :Organization .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesOwnedCar
-:involvesOwnedCar rdf:type owl:ObjectProperty ;
-                  rdfs:domain :CarOwnership ;
-                  rdfs:range :Car .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesOwner
-:involvesOwner rdf:type owl:ObjectProperty ;
-               rdfs:domain :CarOwnership ;
-               rdfs:range :CarRentalCompany .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesRentalCar
@@ -106,11 +87,24 @@ xsd:date rdf:type rdfs:Datatype .
                   rdfs:comment "Identifies the car rental company who rented the car."@en .
 
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/transmission
-:transmission rdf:type owl:ObjectProperty ;
-              rdfs:domain :Car ;
-              rdfs:range :TransmissionType ;
-              rdfs:comment "Identifies the type of transmission the car is equiped with."@en .
+###  https://purl.org/gufo/tutorial/car-rental/1.0/owns
+:owns rdf:type owl:ObjectProperty ;
+      rdfs:domain :CarRentalCompany ;
+      rdfs:range :Car ;
+      rdfs:comment "Identifies cars owned by the car rental company."@en .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/transmissionType
+:transmissionType rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Car ;
+                  rdfs:range :TransmissionType ;
+                  rdfs:comment "Identifies the type of transmission the car is equiped with."@en .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/worksAt
+:worksAt rdf:type owl:ObjectProperty ;
+         rdfs:domain :Person ;
+         rdfs:range :Organization .
 
 
 #################################################################
@@ -131,17 +125,6 @@ xsd:date rdf:type rdfs:Datatype .
      rdfs:comment "The age of the person in years."@en .
 
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/endDate
-:endDate rdf:type owl:DatatypeProperty ;
-         rdfs:domain [ rdf:type owl:Class ;
-                       owl:unionOf ( :CarOwnership
-                                     :CarRentalAgreement
-                                     :Employment
-                                   )
-                     ] ;
-         rdfs:range xsd:dateTime .
-
-
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/expectedReturnDate
 :expectedReturnDate rdf:type owl:DatatypeProperty ;
                     rdfs:domain :CarRentalAgreement ;
@@ -151,6 +134,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/includedDistanceKm
 :includedDistanceKm rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :CarRentalAgreement ;
+                    rdfs:range xsd:positiveInteger ;
                     rdfs:comment "The distance, in kilometers, defined in a rental agreement that the renter can drive without paying additional fees."@en .
 
 
@@ -192,26 +177,10 @@ xsd:date rdf:type rdfs:Datatype .
        rdfs:comment "The amount, in Euros, to be paid by the customer in the rental."@en .
 
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/salary
-:salary rdf:type owl:DatatypeProperty ;
-        rdfs:domain :Employment ;
-        rdfs:range xsd:decimal ;
-        rdfs:comment "The salary, in Euros, defined in an employment agreement."@en .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/startDate
-:startDate rdf:type owl:DatatypeProperty ;
-           rdfs:domain [ rdf:type owl:Class ;
-                         owl:unionOf ( :CarOwnership
-                                       :CarRentalAgreement
-                                       :Employment
-                                     )
-                       ] ;
-           rdfs:range [ rdf:type rdfs:Datatype ;
-                        owl:unionOf ( xsd:date
-                                      xsd:dateTime
-                                    )
-                      ] .
+###  https://purl.org/gufo/tutorial/car-rental/1.0/sippCode
+:sippCode rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Car ;
+          rdfs:range xsd:string .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/trunkVolume
@@ -225,8 +194,8 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/AgePhase
-:AgePhase rdf:type owl:Class ;
+###  https://purl.org/gufo/tutorial/car-rental/1.0/AgeGroup
+:AgeGroup rdf:type owl:Class ;
           owl:equivalentClass [ rdf:type owl:Class ;
                                 owl:oneOf ( :Adult
                                             :Child
@@ -243,24 +212,10 @@ xsd:date rdf:type rdfs:Datatype .
                        owl:onClass :CarCondition
                      ] ,
                      [ rdf:type owl:Restriction ;
-                       owl:onProperty [ owl:inverseOf :involvesOwnedCar
-                                      ] ;
+                       owl:onProperty :transmissionType ;
                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onClass :CarOwnership
+                       owl:onClass :TransmissionType
                      ] .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/CarCategory
-:CarCategory rdf:type owl:Class ;
-             owl:equivalentClass [ rdf:type owl:Class ;
-                                   owl:oneOf ( :Compact
-                                               :FullSize
-                                               :MidSize
-                                               :SUV
-                                               :Sedan
-                                               :Van
-                                             )
-                                 ] .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/CarCondition
@@ -270,20 +225,6 @@ xsd:date rdf:type rdfs:Datatype .
                                                 :OperationalCar
                                               )
                                   ] .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/CarOwnership
-:CarOwnership rdf:type owl:Class ;
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty :involvesOwnedCar ;
-                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass :Car
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :involvesOwner ;
-                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass :CarRentalCompany
-                              ] .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/CarRentalAgreement
@@ -323,21 +264,8 @@ xsd:date rdf:type rdfs:Datatype .
 :Color rdf:type owl:Class .
 
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/Employment
-:Employment rdf:type owl:Class ;
-            owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                         owl:onProperty :involvesEmployee ;
-                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass :Person
-                                                       ]
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty :involvesEmployer ;
-                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass :Organization
-                                                       ]
-                                                     ) ;
-                                  rdf:type owl:Class
-                                ] .
+###  https://purl.org/gufo/tutorial/car-rental/1.0/FuelType
+:FuelType rdf:type owl:Class .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Man
@@ -358,9 +286,9 @@ xsd:date rdf:type rdfs:Datatype .
                                           )
                             ] ;
         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                          owl:onProperty :agePhase ;
+                          owl:onProperty :ageGroup ;
                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :AgePhase
+                          owl:onClass :AgeGroup
                         ] .
 
 
@@ -384,7 +312,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Adult
 :Adult rdf:type owl:NamedIndividual ,
-                :AgePhase .
+                :AgeGroup .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Automatic
@@ -410,39 +338,20 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/CheapRentalsInc
 :CheapRentalsInc rdf:type owl:NamedIndividual ,
                           :CarRentalCompany ;
+                 :owns :FiatPanda1 ,
+                       :VWTiguan1 ;
                  :name "Cheap Rental Incorporated"^^xsd:string .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/CheapRentalsIncOwnershipOfFiatPanda1
-:CheapRentalsIncOwnershipOfFiatPanda1 rdf:type owl:NamedIndividual ,
-                                               :CarOwnership ;
-                                      :involvesOwnedCar :FiatPanda1 ;
-                                      :involvesOwner :CheapRentalsInc ;
-                                      :startDate "2020-01-15"^^xsd:date .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/CheapRentalsIncOwnershipOfVWTiguan1
-:CheapRentalsIncOwnershipOfVWTiguan1 rdf:type owl:NamedIndividual ,
-                                              :CarOwnership ;
-                                     :involvesOwnedCar :VWTiguan1 ;
-                                     :involvesOwner :CheapRentalsInc ;
-                                     :startDate "2018-09-18"^^xsd:date .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Child
 :Child rdf:type owl:NamedIndividual ,
-                :AgePhase .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/Compact
-:Compact rdf:type owl:NamedIndividual ,
-                  :CarCategory .
+                :AgeGroup .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/David
 :David rdf:type owl:NamedIndividual ,
                 :Man ;
-       :agePhase :Adult ;
+       :ageGroup :Adult ;
        :age "21"^^xsd:positiveInteger ;
        :name "David Smith"^^xsd:string .
 
@@ -464,21 +373,37 @@ xsd:date rdf:type rdfs:Datatype .
 :DeceasedPerson rdf:type owl:NamedIndividual .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Diesel
+:Diesel rdf:type owl:NamedIndividual ,
+                 :FuelType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Electric
+:Electric rdf:type owl:NamedIndividual ,
+                   :FuelType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Ethanol
+:Ethanol rdf:type owl:NamedIndividual ,
+                  :FuelType .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/FiatPanda1
 :FiatPanda1 rdf:type owl:NamedIndividual ,
                      :Car ;
-            :category :Compact ;
             :color :Black ;
             :condition :OperationalCar ;
-            :transmission :Manual ;
+            :fuelType :Gasoline ;
+            :transmissionType :Manual ;
             :licensePlate "BD51SMR"^^xsd:string ;
             :modelYear 2020 ;
+            :sippCode "MDMV"^^xsd:string ;
             :trunkVolume "225"^^xsd:positiveInteger .
 
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/FullSize
-:FullSize rdf:type owl:NamedIndividual ,
-                   :CarCategory .
+###  https://purl.org/gufo/tutorial/car-rental/1.0/Gasoline
+:Gasoline rdf:type owl:NamedIndividual ,
+                   :FuelType .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Green
@@ -498,28 +423,15 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Louise
 :Louise rdf:type owl:NamedIndividual ,
                  :Woman ;
-        :agePhase :Adult ;
+        :ageGroup :Adult ;
+        :worksAt :CheapRentalsInc ;
         :age "52"^^xsd:positiveInteger ;
         :name "Louise Jones"^^xsd:string .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/LouiseEmploymentAtCheapRentals
-:LouiseEmploymentAtCheapRentals rdf:type owl:NamedIndividual ,
-                                         :Employment ;
-                                :involvesEmployee :Louise ;
-                                :involvesEmployer :CheapRentalsInc ;
-                                :salary 1800 ;
-                                :startDate "2020-02-01"^^xsd:date .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Manual
 :Manual rdf:type owl:NamedIndividual ,
                  :TransmissionType .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/MidSize
-:MidSize rdf:type owl:NamedIndividual ,
-                  :CarCategory .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/OperationalCar
@@ -532,36 +444,22 @@ xsd:date rdf:type rdfs:Datatype .
               :Color .
 
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/SUV
-:SUV rdf:type owl:NamedIndividual ,
-              :CarCategory .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/Sedan
-:Sedan rdf:type owl:NamedIndividual ,
-                :CarCategory .
-
-
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Teenager
 :Teenager rdf:type owl:NamedIndividual ,
-                   :AgePhase .
+                   :AgeGroup .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/VWTiguan1
 :VWTiguan1 rdf:type owl:NamedIndividual ,
                     :Car ;
-           :category :SUV ;
            :color :White ;
            :condition :BrokenCar ;
-           :transmission :Automatic ;
+           :fuelType :Diesel ;
+           :transmissionType :Automatic ;
            :licensePlate "AJ854HR"^^xsd:string ;
            :modelYear "2018"^^xsd:positiveInteger ;
+           :sippCode "IFAD"^^xsd:string ;
            :trunkVolume 520 .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/Van
-:Van rdf:type owl:NamedIndividual ,
-              :CarCategory .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/White
