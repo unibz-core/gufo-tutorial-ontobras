@@ -129,11 +129,18 @@ xsd:date rdf:type rdfs:Datatype .
                     rdfs:comment "The time instant in which the car should be returned by the customer to the car rental company."@en .
 
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/includedDistanceKm
-:includedDistanceKm rdf:type owl:DatatypeProperty ;
+###  https://purl.org/gufo/tutorial/car-rental/1.0/includedKilometers
+:includedKilometers rdf:type owl:DatatypeProperty ;
                     rdfs:domain :CarRentalAgreement ;
                     rdfs:range xsd:positiveInteger ;
-                    rdfs:comment "The distance, in kilometers, defined in a rental agreement that the renter can drive without paying additional fees."@en .
+                    rdfs:comment "The distance, in kilometers, defined in the rental agreement that the customer can drive without paying additional fees."@en .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/includedMiles
+:includedMiles rdf:type owl:DatatypeProperty ;
+               rdfs:domain :CarRentalAgreement ;
+               rdfs:range xsd:positiveInteger ;
+               rdfs:comment "The distance, in miles, defined in the rental agreement that the customer can drive without paying additional fees."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/licensePlate
@@ -364,6 +371,8 @@ xsd:date rdf:type rdfs:Datatype .
                        :involvesSupplier :CheapRentalsInc ;
                        :actualReturnDate "2021-11-02T10:51:47-02:00"^^xsd:dateTimeStamp ;
                        :expectedReturnDate "2021-11-01T12:00:00-02:00"^^xsd:dateTimeStamp ;
+                       :includedKilometers "1600"^^xsd:positiveInteger ;
+                       :includedMiles "1000"^^xsd:positiveInteger ;
                        :pickupDate "2021-10-20T14:32:10-02:00"^^xsd:dateTimeStamp ;
                        :price 529.59 .
 
