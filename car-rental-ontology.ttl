@@ -469,7 +469,7 @@ xsd:date rdf:type rdfs:Datatype .
                        :pickupDate "2021-10-20T14:32:10-02:00"^^xsd:dateTimeStamp ;
                        :price 529.59 .
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/Diesel
+###  https://purl.org/gufo/tutorial/car-rental/2.0/Diesel
 :Diesel rdf:type owl:NamedIndividual ,
                  :FuelType .
 
