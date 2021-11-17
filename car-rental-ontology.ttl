@@ -387,6 +387,11 @@ xsd:date rdf:type rdfs:Datatype .
        rdfs:subClassOf :Person .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/4.0/ChildCarSeat
+:ChildCarSeat rdf:type owl:Class ;
+              rdfs:subClassOf gufo:Object .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/4.0/Color
 :Color rdf:type owl:Class ;
        rdfs:subClassOf gufo:Quality ,
@@ -430,6 +435,11 @@ xsd:date rdf:type rdfs:Datatype .
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onClass :Organization
                             ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/4.0/ExpectedReturnDate
+:ExpectedReturnDate rdf:type owl:Class ;
+                    rdfs:subClassOf gufo:Quality .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/4.0/FuelType
@@ -584,6 +594,19 @@ xsd:date rdf:type rdfs:Datatype .
                 :AgeGroup .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/4.0/ChildCarSeat1
+:ChildCarSeat1 rdf:type owl:NamedIndividual ,
+                        :ChildCarSeat ;
+               gufo:standsInQualifiedParthood :ChildCarSeat1InstalledOnFiatPanda1 .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/4.0/ChildCarSeat1InstalledOnFiatPanda1
+:ChildCarSeat1InstalledOnFiatPanda1 rdf:type owl:NamedIndividual ,
+                                             gufo:TemporaryParthoodSituation ;
+                                    gufo:concernsTemporaryWhole :FiatPanda1 ;
+                                    gufo:hasBeginPointInXSDDate "2021-10-18"^^xsd:date .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/4.0/ColorOfFiatPanda1
 :ColorOfFiatPanda1 rdf:type owl:NamedIndividual ,
                             :Color ;
@@ -607,7 +630,6 @@ xsd:date rdf:type rdfs:Datatype .
        gufo:standsInQualifiedInstantiation :DavidAsAChild ,
                                            :DavidAsATeenager ,
                                            :DavidAsAnAdult ;
-       :age "21"^^xsd:positiveInteger ;
        :name "David Smith"^^xsd:string .
 
 
@@ -683,6 +705,11 @@ xsd:date rdf:type rdfs:Datatype .
                   :FuelType .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/4.0/ExpectedReturnDate
+:ExpectedReturnDate rdf:type owl:NamedIndividual ,
+                             gufo:EndurantType .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/4.0/FiatPanda1
 :FiatPanda1 rdf:type owl:NamedIndividual ,
                      :Car ;
@@ -712,6 +739,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/4.0/InitialExpectedReturnDate
 :InitialExpectedReturnDate rdf:type owl:NamedIndividual ,
                                     gufo:QualityValueAttributionSituation ;
+                           gufo:concernsQualityType :ExpectedReturnDate ;
                            gufo:concernsQualityValue "2021-11-01T12:00:00-02:00"^^xsd:dateTimeStamp ;
                            gufo:hasBeginPointInXSDDateTimeStamp "2021-10-20T14:32:10-02:00"^^xsd:dateTimeStamp ;
                            gufo:hasEndPointInXSDDateTimeStamp "2021-10-25T09:12:03-02:00"^^xsd:dateTimeStamp .
@@ -822,6 +850,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/4.0/UpdatedExpectedReturnDate
 :UpdatedExpectedReturnDate rdf:type owl:NamedIndividual ,
                                     gufo:QualityValueAttributionSituation ;
+                           gufo:concernsQualityType :ExpectedReturnDate ;
                            gufo:concernsQualityValue "2021-11-02T12:00:00-02:00"^^xsd:dateTimeStamp ;
                            gufo:hasBeginPointInXSDDateTimeStamp "2021-10-25T09:12:03-02:00"^^xsd:dateTimeStamp ;
                            gufo:hasEndPointInXSDDateTimeStamp "2021-11-02T10:51:47-02:00"^^xsd:dateTimeStamp .
