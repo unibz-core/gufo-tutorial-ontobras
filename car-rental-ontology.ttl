@@ -111,7 +111,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/actualReturnDate
 :actualReturnDate rdf:type owl:DatatypeProperty ;
                   rdfs:domain :CarRentalAgreement ;
-                  rdfs:range xsd:dateTime ;
+                  rdfs:range xsd:dateTimeStamp ;
                   rdfs:comment "The time instant in which the car was actually returned by the customer and the rental agreement terminated."@en .
 
 
@@ -125,7 +125,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/expectedReturnDate
 :expectedReturnDate rdf:type owl:DatatypeProperty ;
                     rdfs:domain :CarRentalAgreement ;
-                    rdfs:range xsd:dateTime ;
+                    rdfs:range xsd:dateTimeStamp ;
                     rdfs:comment "The time instant in which the car should be returned by the customer to the car rental company."@en .
 
 
@@ -164,7 +164,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/pickupDate
 :pickupDate rdf:type owl:DatatypeProperty ;
             rdfs:domain :CarRentalAgreement ;
-            rdfs:range xsd:dateTime ;
+            rdfs:range xsd:dateTimeStamp ;
             rdfs:comment "The time instant in which the customer picked up the rental car and thus, the rental agreement started."@en .
 
 
@@ -362,9 +362,9 @@ xsd:date rdf:type rdfs:Datatype .
                        :involvesRentalCar :FiatPanda1 ;
                        :involvesSeller :Louise ;
                        :involvesSupplier :CheapRentalsInc ;
-                       :actualReturnDate "2021-11-02T10:51:47"^^xsd:dateTime ;
-                       :expectedReturnDate "2021-11-01T12:00:00"^^xsd:dateTime ;
-                       :pickupDate "2021-10-20T14:32:10"^^xsd:dateTime ;
+                       :actualReturnDate "2021-11-02T10:51:47-02:00"^^xsd:dateTimeStamp ;
+                       :expectedReturnDate "2021-11-01T12:00:00-02:00"^^xsd:dateTimeStamp ;
+                       :pickupDate "2021-10-20T14:32:10-02:00"^^xsd:dateTimeStamp ;
                        :price 529.59 .
 
 
