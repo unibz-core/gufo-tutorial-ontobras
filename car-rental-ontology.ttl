@@ -49,7 +49,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/fuelType
 :fuelType rdf:type owl:ObjectProperty ;
           rdfs:domain :Car ;
-          rdfs:range :FuelType .
+          rdfs:range :FuelType ;
+          rdfs:comment "Identifies the type of fuel on which the car runs on."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesCustomer
