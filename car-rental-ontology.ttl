@@ -28,6 +28,7 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:range :AgeGroup ;
           rdfs:comment "Identifies the age group the person belongs to."@en .
 
+
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/color
 :color rdf:type owl:ObjectProperty ;
        rdfs:subPropertyOf gufo:hasReifiedQualityValue ;
@@ -140,11 +141,10 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/actualReturnDate
 :actualReturnDate rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf gufo:hasEndPointInXSDDate ;
+                  rdfs:subPropertyOf gufo:hasEndPointInXSDDateTimeStamp ;
                   rdfs:domain :CarRentalAgreement ;
                   rdfs:range xsd:dateTimeStamp ;
                   rdfs:comment "The time instant in which the car was actually returned by the customer and the rental agreement terminated."@en .
-
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/age
@@ -209,7 +209,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/pickupDate
 :pickupDate rdf:type owl:DatatypeProperty ;
-            rdfs:subPropertyOf gufo:hasBeginPointInXSDDate ;
+            rdfs:subPropertyOf gufo:hasBeginPointInXSDDateTimeStamp ;
             rdfs:domain :CarRentalAgreement ;
             rdfs:range xsd:dateTimeStamp ;
             rdfs:comment "The time instant in which the customer picked up the rental car and thus, the rental agreement started."@en .
