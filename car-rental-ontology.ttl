@@ -729,10 +729,6 @@ xsd:date rdf:type rdfs:Datatype .
                        :price 529.59 .
 
 
-###  https://purl.org/gufo/tutorial/car-rental/5.0/DeceasedPerson
-:DeceasedPerson rdf:type owl:NamedIndividual .
-
-
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Diesel
 :Diesel rdf:type owl:NamedIndividual ,
                  :FuelType .
@@ -809,10 +805,6 @@ xsd:date rdf:type rdfs:Datatype .
                            gufo:concernsQualityValue "2021-11-01T12:00:00-02:00"^^xsd:dateTimeStamp ;
                            gufo:hasBeginPointInXSDDateTimeStamp "2021-10-20T14:32:10-02:00"^^xsd:dateTimeStamp ;
                            gufo:hasEndPointInXSDDateTimeStamp "2021-10-25T09:12:03-02:00"^^xsd:dateTimeStamp .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/5.0/LivingPerson
-:LivingPerson rdf:type owl:NamedIndividual .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Louise
@@ -1018,13 +1010,6 @@ xsd:date rdf:type rdfs:Datatype .
                 :Organization
                 :Person
               )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( :DeceasedPerson
-                        :LivingPerson
-                      )
 ] .
 
 
