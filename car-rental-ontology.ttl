@@ -3,6 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <https://purl.org/gufo/tutorial/car-rental/1.0> .
 
@@ -29,7 +30,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/color
 :color rdf:type owl:ObjectProperty ;
-       rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasReifiedQualityValue> ;
+       rdfs:subPropertyOf gufo:hasReifiedQualityValue ;
        rdfs:domain :Car ;
        rdfs:range :Color ;
        rdfs:comment "Identifies the color of the car."@en .
@@ -51,7 +52,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesCustomer
 :involvesCustomer rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://purl.org/nemo/gufo#mediates> ;
+                  rdfs:subPropertyOf gufo:mediates ;
                   rdfs:domain :CarRentalAgreement ;
                   rdfs:range [ rdf:type owl:Class ;
                                owl:unionOf ( :Organization
@@ -63,35 +64,35 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesEmployee
 :involvesEmployee rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://purl.org/nemo/gufo#mediates> ;
+                  rdfs:subPropertyOf gufo:mediates ;
                   rdfs:domain :Employment ;
                   rdfs:range :Person .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesEmployer
 :involvesEmployer rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://purl.org/nemo/gufo#mediates> ;
+                  rdfs:subPropertyOf gufo:mediates ;
                   rdfs:domain :Employment ;
                   rdfs:range :Organization .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesOwned
 :involvesOwned rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://purl.org/nemo/gufo#mediates> ;
+               rdfs:subPropertyOf gufo:mediates ;
                rdfs:domain :Ownership ;
                rdfs:range :Car .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesOwner
 :involvesOwner rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://purl.org/nemo/gufo#mediates> ;
+               rdfs:subPropertyOf gufo:mediates ;
                rdfs:domain :Ownership ;
                rdfs:range :CarRentalCompany .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesRentalCar
 :involvesRentalCar rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://purl.org/nemo/gufo#mediates> ;
+                   rdfs:subPropertyOf gufo:mediates ;
                    rdfs:domain :CarRentalAgreement ;
                    rdfs:range :Car ;
                    rdfs:comment "Identifies the car given to the customer in the rental agreement."@en .
@@ -99,7 +100,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesSeller
 :involvesSeller rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <http://purl.org/nemo/gufo#mediates> ;
+                rdfs:subPropertyOf gufo:mediates ;
                 rdfs:domain :CarRentalAgreement ;
                 rdfs:range :Person ;
                 rdfs:comment "Identifies the employee responsible for the rental agreement."@en .
@@ -107,7 +108,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/involvesSupplier
 :involvesSupplier rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://purl.org/nemo/gufo#mediates> ;
+                  rdfs:subPropertyOf gufo:mediates ;
                   rdfs:domain :CarRentalAgreement ;
                   rdfs:range :CarRentalCompany ;
                   rdfs:comment "Identifies the car rental company who rented the car."@en .
@@ -139,7 +140,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/actualReturnDate
 :actualReturnDate rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasEndPointInXSDDate> ;
+                  rdfs:subPropertyOf gufo:hasEndPointInXSDDate ;
                   rdfs:domain :CarRentalAgreement ;
                   rdfs:range xsd:dateTimeStamp ;
                   rdfs:comment "The time instant in which the car was actually returned by the customer and the rental agreement terminated."@en .
@@ -148,7 +149,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/age
 :age rdf:type owl:DatatypeProperty ;
-     rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+     rdfs:subPropertyOf gufo:hasQualityValue ;
      rdfs:domain :Person ;
      rdfs:range xsd:positiveInteger ;
      rdfs:comment "The age of the person in years."@en .
@@ -156,7 +157,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/expectedReturnDate
 :expectedReturnDate rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+                    rdfs:subPropertyOf gufo:hasQualityValue ;
                     rdfs:domain :CarRentalAgreement ;
                     rdfs:range xsd:dateTimeStamp ;
                     rdfs:comment "The time instant in which the car should be returned by the customer to the car rental company."@en .
@@ -164,7 +165,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/includedKilometers
 :includedKilometers rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+                    rdfs:subPropertyOf gufo:hasQualityValue ;
                     rdfs:domain :CarRentalAgreement ;
                     rdfs:range xsd:positiveInteger ;
                     rdfs:comment "The distance, in kilometers, defined in the rental agreement that the customer can drive without paying additional fees."@en .
@@ -172,7 +173,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/includedMiles
 :includedMiles rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+               rdfs:subPropertyOf gufo:hasQualityValue ;
                rdfs:domain :CarRentalAgreement ;
                rdfs:range xsd:positiveInteger ;
                rdfs:comment "The distance, in miles, defined in the rental agreement that the customer can drive without paying additional fees."@en .
@@ -180,7 +181,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/licensePlate
 :licensePlate rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+              rdfs:subPropertyOf gufo:hasQualityValue ;
               rdfs:domain :Car ;
               rdfs:range xsd:string ;
               rdfs:comment "The license plate of the car."@en .
@@ -188,7 +189,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/modelYear
 :modelYear rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+           rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :Car ;
            rdfs:range xsd:positiveInteger ;
            rdfs:comment "The year in which the model of the car was designed. Not necessarily the year in which the car was built."@en .
@@ -196,7 +197,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/name
 :name rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+      rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain [ rdf:type owl:Class ;
                     owl:unionOf ( :Organization
                                   :Person
@@ -208,7 +209,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/pickupDate
 :pickupDate rdf:type owl:DatatypeProperty ;
-            rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasBeginPointInXSDDate> ;
+            rdfs:subPropertyOf gufo:hasBeginPointInXSDDate ;
             rdfs:domain :CarRentalAgreement ;
             rdfs:range xsd:dateTimeStamp ;
             rdfs:comment "The time instant in which the customer picked up the rental car and thus, the rental agreement started."@en .
@@ -216,7 +217,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/price
 :price rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+       rdfs:subPropertyOf gufo:hasQualityValue ;
        rdfs:domain :CarRentalAgreement ;
        rdfs:range xsd:decimal ;
        rdfs:comment "The amount, in Euros, to be paid by the customer in the rental."@en .
@@ -231,7 +232,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/trunkVolume
 :trunkVolume rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf <http://purl.org/nemo/gufo#hasQualityValue> ;
+             rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :Car ;
              rdfs:range xsd:decimal ;
              rdfs:comment "The volume, in liters, of the car's trunk."@en .
@@ -253,7 +254,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Car
 :Car rdf:type owl:Class ;
-     rdfs:subClassOf <http://purl.org/nemo/gufo#Object> ,
+     rdfs:subClassOf gufo:Object ,
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :condition ;
                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -277,7 +278,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/CarRentalAgreement
 :CarRentalAgreement rdf:type owl:Class ;
-                    rdfs:subClassOf <http://purl.org/nemo/gufo#Relator> ,
+                    rdfs:subClassOf gufo:Relator ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :involvesCustomer ;
                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -311,12 +312,12 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Color
 :Color rdf:type owl:Class ;
-       rdfs:subClassOf <http://purl.org/nemo/gufo#QualityValue> .
+       rdfs:subClassOf gufo:QualityValue .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Employment
 :Employment rdf:type owl:Class ;
-            rdfs:subClassOf <http://purl.org/nemo/gufo#Relator> ,
+            rdfs:subClassOf gufo:Relator ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :involvesEmployee ;
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -341,12 +342,12 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Organization
 :Organization rdf:type owl:Class ;
-              rdfs:subClassOf <http://purl.org/nemo/gufo#Object> .
+              rdfs:subClassOf gufo:Object .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Ownership
 :Ownership rdf:type owl:Class ;
-           rdfs:subClassOf <http://purl.org/nemo/gufo#Relator> ,
+           rdfs:subClassOf gufo:Relator ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :involvesOwned ;
                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -366,7 +367,7 @@ xsd:date rdf:type rdfs:Datatype .
                                             :Woman
                                           )
                             ] ;
-        rdfs:subClassOf <http://purl.org/nemo/gufo#Object> ,
+        rdfs:subClassOf gufo:Object ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :ageGroup ;
                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -430,7 +431,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                :Ownership ;
                                       :involvesOwned :FiatPanda1 ;
                                       :involvesOwner :CheapRentalsInc ;
-                                      <http://purl.org/nemo/gufo#hasEndPointInXSDDate> "2020-02-20"^^xsd:date .
+                                      gufo:hasEndPointInXSDDate "2020-02-20"^^xsd:date .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/CheapRentalsIncOwnershipOfVWTiguan1
@@ -438,7 +439,7 @@ xsd:date rdf:type rdfs:Datatype .
                                               :Ownership ;
                                      :involvesOwned :VWTiguan1 ;
                                      :involvesOwner :CheapRentalsInc ;
-                                     <http://purl.org/nemo/gufo#hasBeginPointInXSDDate> "2018-03-02"^^xsd:date .
+                                     gufo:hasBeginPointInXSDDate "2018-03-02"^^xsd:date .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Child
@@ -524,7 +525,7 @@ xsd:date rdf:type rdfs:Datatype .
                                             :Employment ;
                                    :involvesEmployee :Louise ;
                                    :involvesEmployer :CheapRentalsInc ;
-                                   <http://purl.org/nemo/gufo#hasBeginPointInXSDDate> "2018-03-15"^^xsd:date .
+                                   gufo:hasBeginPointInXSDDate "2018-03-15"^^xsd:date .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/LouiseEmploymentAtLuxuryRentalsCorp
@@ -532,8 +533,8 @@ xsd:date rdf:type rdfs:Datatype .
                                               :Employment ;
                                      :involvesEmployee :Louise ;
                                      :involvesEmployer :LuxuryRentalsCorp ;
-                                     <http://purl.org/nemo/gufo#hasBeginPointInXSDDate> "2015-11-21"^^xsd:date ;
-                                     <http://purl.org/nemo/gufo#hasEndPointInXSDDate> "2017-10-22"^^xsd:date .
+                                     gufo:hasBeginPointInXSDDate "2015-11-21"^^xsd:date ;
+                                     gufo:hasEndPointInXSDDate "2017-10-22"^^xsd:date .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/LuxuryRentalsCorp
