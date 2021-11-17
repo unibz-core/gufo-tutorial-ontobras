@@ -23,13 +23,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/ageGroup
 :ageGroup rdf:type owl:ObjectProperty ;
           rdfs:domain :Person ;
-          rdfs:range :AgeGroup .
-
-
-###  https://purl.org/gufo/tutorial/car-rental/1.0/category
-:category rdf:type owl:ObjectProperty ;
-          rdfs:domain :Car ;
-          rdfs:comment "Identifies the category that best describes the car."@en .
+          rdfs:range :AgeGroup ;
+          rdfs:comment "Identifies the age group the person belongs to."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/color
@@ -105,7 +100,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/worksAt
 :worksAt rdf:type owl:ObjectProperty ;
          rdfs:domain :Person ;
-         rdfs:range :Organization .
+         rdfs:range :Organization ;
+         rdfs:comment "Identifies the companies where the person works (or has worked) at."@en .
 
 
 #################################################################
@@ -116,7 +112,7 @@ xsd:date rdf:type rdfs:Datatype .
 :actualReturnDate rdf:type owl:DatatypeProperty ;
                   rdfs:domain :CarRentalAgreement ;
                   rdfs:range xsd:dateTime ;
-                  rdfs:comment "The date in which the car was actually returned by the customer."@en .
+                  rdfs:comment "The time instant in which the car was actually returned by the customer and the rental agreement terminated."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/age
@@ -130,7 +126,7 @@ xsd:date rdf:type rdfs:Datatype .
 :expectedReturnDate rdf:type owl:DatatypeProperty ;
                     rdfs:domain :CarRentalAgreement ;
                     rdfs:range xsd:dateTime ;
-                    rdfs:comment "The date in which the car should be returned by the customer to the car rental company."@en .
+                    rdfs:comment "The time instant in which the car should be returned by the customer to the car rental company."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/includedDistanceKm
@@ -143,7 +139,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/licensePlate
 :licensePlate rdf:type owl:DatatypeProperty ;
               rdfs:domain :Car ;
-              rdfs:range xsd:string .
+              rdfs:range xsd:string ;
+              rdfs:comment "The license plate of the car."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/modelYear
@@ -168,7 +165,7 @@ xsd:date rdf:type rdfs:Datatype .
 :pickupDate rdf:type owl:DatatypeProperty ;
             rdfs:domain :CarRentalAgreement ;
             rdfs:range xsd:dateTime ;
-            rdfs:comment "The date in which the customer picked up the rental car."@en .
+            rdfs:comment "The time instant in which the customer picked up the rental car and thus, the rental agreement started."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/price
@@ -181,7 +178,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/sippCode
 :sippCode rdf:type owl:DatatypeProperty ;
           rdfs:domain :Car ;
-          rdfs:range xsd:string .
+          rdfs:range xsd:string ;
+          rdfs:comment "The Standard Interline Passenger Procedure (SIPP) code. A 4-letter code that identify the major features of a rental vehicle, namely its size, the number of doors it has, its transmission type, the fuel type it runs on, and whether or not it has air conditioning."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/trunkVolume
@@ -364,9 +362,9 @@ xsd:date rdf:type rdfs:Datatype .
                        :involvesRentalCar :FiatPanda1 ;
                        :involvesSeller :Louise ;
                        :involvesSupplier :CheapRentalsInc ;
-                       :actualReturnDate "2021-11-02"^^xsd:date ;
-                       :expectedReturnDate "2021-11-01"^^xsd:date ;
-                       :pickupDate "2021-10-20"^^xsd:date ;
+                       :actualReturnDate "2021-11-02T10:51:47"^^xsd:dateTime ;
+                       :expectedReturnDate "2021-11-01T12:00:00"^^xsd:dateTime ;
+                       :pickupDate "2021-10-20T14:32:10"^^xsd:dateTime ;
                        :price 529.59 .
 
 
