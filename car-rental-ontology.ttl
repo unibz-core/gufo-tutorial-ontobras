@@ -108,13 +108,6 @@ xsd:date rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
-###  https://purl.org/gufo/tutorial/car-rental/1.0/actualReturnDate
-:actualReturnDate rdf:type owl:DatatypeProperty ;
-                  rdfs:domain :CarRentalAgreement ;
-                  rdfs:range xsd:dateTimeStamp ;
-                  rdfs:comment "The time instant in which the car was actually returned by the customer and the rental agreement terminated."@en .
-
-
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/age
 :age rdf:type owl:DatatypeProperty ;
      rdfs:domain :Person ;
@@ -180,6 +173,13 @@ xsd:date rdf:type rdfs:Datatype .
        rdfs:domain :CarRentalAgreement ;
        rdfs:range xsd:decimal ;
        rdfs:comment "The amount, in Euros, to be paid by the customer in the rental."@en .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/1.0/returnDate
+:returnDate rdf:type owl:DatatypeProperty ;
+            rdfs:domain :CarRentalAgreement ;
+            rdfs:range xsd:dateTimeStamp ;
+            rdfs:comment "The time instant in which the car was actually returned by the customer and the rental agreement terminated."@en .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/sippCode
@@ -369,12 +369,13 @@ xsd:date rdf:type rdfs:Datatype .
                        :involvesRentalCar :FiatPanda1 ;
                        :involvesSeller :Louise ;
                        :involvesSupplier :CheapRentalsInc ;
-                       :actualReturnDate "2021-11-02T10:51:47-02:00"^^xsd:dateTimeStamp ;
                        :expectedReturnDate "2021-11-01T12:00:00-02:00"^^xsd:dateTimeStamp ;
                        :includedKilometers "1600"^^xsd:positiveInteger ;
                        :includedMiles "1000"^^xsd:positiveInteger ;
                        :pickupDate "2021-10-20T14:32:10-02:00"^^xsd:dateTimeStamp ;
-                       :price 529.59 .
+                       :price 529.59 ;
+                       :returnDate "2021-11-02T10:51:47-02:00"^^xsd:dateTimeStamp .
+
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Diesel
 :Diesel rdf:type owl:NamedIndividual ,
@@ -417,6 +418,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Grey
 :Grey rdf:type owl:NamedIndividual ,
                :Color .
+
 
 ###  https://purl.org/gufo/tutorial/car-rental/1.0/Louise
 :Louise rdf:type owl:NamedIndividual ,
