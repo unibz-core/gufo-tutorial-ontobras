@@ -2,11 +2,11 @@
 
 ## About gUFO
 
-gUFO is a lightweight implementation of the Unified Foundational Ontology (UFO) suitable for Semantic Web OWL 2 DL applications.
+[gUFO](http://purl.org/nemo/gufo) is a lightweight implementation of the Unified Foundational Ontology (UFO) suitable for Semantic Web OWL 2 DL applications.
 
 The 'g' in gUFO stands for gentle. At the same time, "gufo" is the Italian word for "owl".
 
-To learn more about gUFO, please refer to http://purl.org/nemo/doc/gufo.
+To learn more about [gUFO](http://purl.org/nemo/gufo), please refer to the [official documentation](http://purl.org/nemo/doc/gufo).
 
 ## How to use this repository
 
