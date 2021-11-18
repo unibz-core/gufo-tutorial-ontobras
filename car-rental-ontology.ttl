@@ -300,6 +300,21 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:subClassOf gufo:Phase .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/AutoAllWheelDrive
+:AutoAllWheelDrive rdf:type owl:Class ;
+                   rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/AutoDrive
+:AutoDrive rdf:type owl:Class ;
+           rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/AutoFourWheelDrive
+:AutoFourWheelDrive rdf:type owl:Class ;
+                    rdfs:subClassOf :Car .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Automatic
 :Automatic rdf:type owl:Class ;
            rdfs:subClassOf :Car .
@@ -395,10 +410,30 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:subClassOf gufo:QualityValue .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Compact
+:Compact rdf:type owl:Class ;
+         rdfs:subClassOf :Car .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/CorporateCustomer
 :CorporateCustomer rdf:type owl:Class ;
                    rdfs:subClassOf :Customer ,
                                    :Organization .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Coupe
+:Coupe rdf:type owl:Class ;
+       rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Covertible
+:Covertible rdf:type owl:Class ;
+            rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Crossover
+:Crossover rdf:type owl:Class ;
+           rdfs:subClassOf :Car .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Customer
@@ -411,6 +446,16 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:subClassOf gufo:Object .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/DieselAc
+:DieselAc rdf:type owl:Class ;
+          rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/DieselNoAc
+:DieselNoAc rdf:type owl:Class ;
+            rdfs:subClassOf :Car .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Distance
 :Distance rdf:type owl:Class ;
           rdfs:subClassOf gufo:Quality ,
@@ -419,6 +464,21 @@ xsd:date rdf:type rdfs:Datatype .
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onClass :CarRentalAgreement
                           ] .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Economy
+:Economy rdf:type owl:Class ;
+         rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ElectricAc
+:ElectricAc rdf:type owl:Class ;
+            rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ElectricNoAc
+:ElectricNoAc rdf:type owl:Class ;
+              rdfs:subClassOf :Car .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Employee
@@ -451,9 +511,39 @@ xsd:date rdf:type rdfs:Datatype .
                     rdfs:subClassOf gufo:Quality .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/FourFiveDoor
+:FourFiveDoor rdf:type owl:Class ;
+              rdfs:subClassOf :Car .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/FuelType
 :FuelType rdf:type owl:Class ;
           rdfs:subClassOf gufo:RigidType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Fullsize
+:Fullsize rdf:type owl:Class ;
+          rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/HybridAc
+:HybridAc rdf:type owl:Class ;
+          rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/HybridNoAc
+:HybridNoAc rdf:type owl:Class ;
+            rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Intermediate
+:Intermediate rdf:type owl:Class ;
+              rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Luxury
+:Luxury rdf:type owl:Class ;
+        rdfs:subClassOf :Car .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Man
@@ -467,6 +557,26 @@ xsd:date rdf:type rdfs:Datatype .
         rdfs:subClassOf :Car .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ManualAllWheelDrive
+:ManualAllWheelDrive rdf:type owl:Class ;
+                     rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ManualDrive
+:ManualDrive rdf:type owl:Class ;
+             rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ManualFourWheelDrive
+:ManualFourWheelDrive rdf:type owl:Class ;
+                      rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Mini
+:Mini rdf:type owl:Class ;
+      rdfs:subClassOf :Car .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/OperationalCar
 :OperationalCar rdf:type owl:Class ;
                 rdfs:subClassOf :Car .
@@ -475,6 +585,11 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Organization
 :Organization rdf:type owl:Class ;
               rdfs:subClassOf gufo:Object .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Oversize
+:Oversize rdf:type owl:Class ;
+          rdfs:subClassOf :Car .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Ownership
@@ -492,6 +607,11 @@ xsd:date rdf:type rdfs:Datatype .
                            ] .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/PassengerVan
+:PassengerVan rdf:type owl:Class ;
+              rdfs:subClassOf :Car .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Person
 :Person rdf:type owl:Class ;
         owl:equivalentClass [ rdf:type owl:Class ;
@@ -502,10 +622,60 @@ xsd:date rdf:type rdfs:Datatype .
         rdfs:subClassOf gufo:Object .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/PetrolAc
+:PetrolAc rdf:type owl:Class ;
+          rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/PetrolNoAc
+:PetrolNoAc rdf:type owl:Class ;
+            rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Premium
+:Premium rdf:type owl:Class ;
+         rdfs:subClassOf :Car .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/PrivateCustomer
 :PrivateCustomer rdf:type owl:Class ;
                  rdfs:subClassOf :Adult ,
                                  :Customer .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/SippVehicleTypeByChassiType
+:SippVehicleTypeByChassiType rdf:type owl:Class ;
+                             rdfs:subClassOf gufo:RigidType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/SippVehicleTypeByFuelAndAirConditioning
+:SippVehicleTypeByFuelAndAirConditioning rdf:type owl:Class ;
+                                         rdfs:subClassOf gufo:RigidType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/SippVehicleTypeBySize
+:SippVehicleTypeBySize rdf:type owl:Class ;
+                       rdfs:subClassOf gufo:RigidType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/SippVehicleTypeByTransmissionAndDrive
+:SippVehicleTypeByTransmissionAndDrive rdf:type owl:Class ;
+                                       rdfs:subClassOf gufo:RigidType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Special
+:Special rdf:type owl:Class ;
+         rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Standard
+:Standard rdf:type owl:Class ;
+          rdfs:subClassOf :Car .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Suv
+:Suv rdf:type owl:Class ;
+     rdfs:subClassOf :Car .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Teenager
@@ -523,9 +693,19 @@ xsd:date rdf:type rdfs:Datatype .
                   rdfs:subClassOf gufo:RigidType .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/TwoThreeDoor
+:TwoThreeDoor rdf:type owl:Class ;
+              rdfs:subClassOf :Car .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Volume
 :Volume rdf:type owl:Class ;
         rdfs:subClassOf gufo:Quality .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/WagonState
+:WagonState rdf:type owl:Class ;
+            rdfs:subClassOf :Car .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Woman
@@ -546,6 +726,21 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Age
 :Age rdf:type owl:NamedIndividual ,
               gufo:EndurantType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/AutoAllWheelDrive
+:AutoAllWheelDrive rdf:type owl:NamedIndividual ,
+                            :SippVehicleTypeByTransmissionAndDrive .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/AutoDrive
+:AutoDrive rdf:type owl:NamedIndividual ,
+                    :SippVehicleTypeByTransmissionAndDrive .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/AutoFourWheelDrive
+:AutoFourWheelDrive rdf:type owl:NamedIndividual ,
+                             :SippVehicleTypeByTransmissionAndDrive .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Automatic
@@ -664,9 +859,29 @@ xsd:date rdf:type rdfs:Datatype .
                  :hasColorValueInRgb :WhiteInRgb .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Compact
+:Compact rdf:type owl:NamedIndividual ,
+                  :SippVehicleTypeBySize .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/CorporateCustomer
 :CorporateCustomer rdf:type owl:NamedIndividual ,
                             gufo:Role .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Coupe
+:Coupe rdf:type owl:NamedIndividual ,
+                :SippVehicleTypeByChassiType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Covertible
+:Covertible rdf:type owl:NamedIndividual ,
+                     :SippVehicleTypeByChassiType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Crossover
+:Crossover rdf:type owl:NamedIndividual ,
+                    :SippVehicleTypeByChassiType .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Customer
@@ -734,6 +949,16 @@ xsd:date rdf:type rdfs:Datatype .
                  :FuelType .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/DieselAc
+:DieselAc rdf:type owl:NamedIndividual ,
+                   :SippVehicleTypeByFuelAndAirConditioning .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/DieselNoAc
+:DieselNoAc rdf:type owl:NamedIndividual ,
+                     :SippVehicleTypeByFuelAndAirConditioning .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/DistanceOfRentalAgreement1
 :DistanceOfRentalAgreement1 rdf:type owl:NamedIndividual ,
                                      :Distance ;
@@ -742,9 +967,24 @@ xsd:date rdf:type rdfs:Datatype .
                             :distanceInMiles "1000"^^xsd:positiveInteger .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Economy
+:Economy rdf:type owl:NamedIndividual ,
+                  :SippVehicleTypeBySize .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Electric
 :Electric rdf:type owl:NamedIndividual ,
                    :FuelType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ElectricAc
+:ElectricAc rdf:type owl:NamedIndividual ,
+                     :SippVehicleTypeByFuelAndAirConditioning .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ElectricNoAc
+:ElectricNoAc rdf:type owl:NamedIndividual ,
+                       :SippVehicleTypeByFuelAndAirConditioning .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Employee
@@ -775,12 +1015,26 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/FiatPanda1
 :FiatPanda1 rdf:type owl:NamedIndividual ,
                      :Car ,
-                     :Manual ;
+                     :FourFiveDoor ,
+                     :Manual ,
+                     :ManualDrive ,
+                     :Mini ,
+                     :PetrolAc ;
             gufo:standsInQualifiedInstantiation :OperationalFiatPanda1 ;
             :fuelType :Gasoline ;
             :licensePlate "BD51SMR"^^xsd:string ;
             :modelYear "2020"^^xsd:positiveInteger ;
             :sippCode "MDMV"^^xsd:string .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/FourFiveDoor
+:FourFiveDoor rdf:type owl:NamedIndividual ,
+                       :SippVehicleTypeByChassiType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Fullsize
+:Fullsize rdf:type owl:NamedIndividual ,
+                   :SippVehicleTypeBySize .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Gasoline
@@ -798,6 +1052,16 @@ xsd:date rdf:type rdfs:Datatype .
                :ColorValue .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/HybridAc
+:HybridAc rdf:type owl:NamedIndividual ,
+                   :SippVehicleTypeByFuelAndAirConditioning .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/HybridNoAc
+:HybridNoAc rdf:type owl:NamedIndividual ,
+                     :SippVehicleTypeByFuelAndAirConditioning .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/InitialExpectedReturnDate
 :InitialExpectedReturnDate rdf:type owl:NamedIndividual ,
                                     gufo:QualityValueAttributionSituation ;
@@ -805,6 +1069,11 @@ xsd:date rdf:type rdfs:Datatype .
                            gufo:concernsQualityValue "2021-11-01T12:00:00-02:00"^^xsd:dateTimeStamp ;
                            gufo:hasBeginPointInXSDDateTimeStamp "2021-10-20T14:32:10-02:00"^^xsd:dateTimeStamp ;
                            gufo:hasEndPointInXSDDateTimeStamp "2021-10-25T09:12:03-02:00"^^xsd:dateTimeStamp .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Intermediate
+:Intermediate rdf:type owl:NamedIndividual ,
+                       :SippVehicleTypeBySize .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Louise
@@ -848,6 +1117,11 @@ xsd:date rdf:type rdfs:Datatype .
                                      gufo:hasEndPointInXSDDate "2017-10-22"^^xsd:date .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Luxury
+:Luxury rdf:type owl:NamedIndividual ,
+                 :SippVehicleTypeBySize .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/LuxuryRentalsCorp
 :LuxuryRentalsCorp rdf:type owl:NamedIndividual ,
                             :CarRentalCompany ;
@@ -863,6 +1137,26 @@ xsd:date rdf:type rdfs:Datatype .
 :Manual rdf:type owl:NamedIndividual ,
                  gufo:SubKind ,
                  :TransmissionType .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ManualAllWheelDrive
+:ManualAllWheelDrive rdf:type owl:NamedIndividual ,
+                              :SippVehicleTypeByTransmissionAndDrive .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ManualDrive
+:ManualDrive rdf:type owl:NamedIndividual ,
+                      :SippVehicleTypeByTransmissionAndDrive .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/ManualFourWheelDrive
+:ManualFourWheelDrive rdf:type owl:NamedIndividual ,
+                               :SippVehicleTypeByTransmissionAndDrive .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Mini
+:Mini rdf:type owl:NamedIndividual ,
+               :SippVehicleTypeBySize .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/OperationalCar
@@ -891,14 +1185,39 @@ xsd:date rdf:type rdfs:Datatype .
                        gufo:Kind .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Oversize
+:Oversize rdf:type owl:NamedIndividual ,
+                   :SippVehicleTypeBySize .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Ownership
 :Ownership rdf:type owl:NamedIndividual ,
                     gufo:Kind .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/PassengerVan
+:PassengerVan rdf:type owl:NamedIndividual ,
+                       :SippVehicleTypeByChassiType .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Person
 :Person rdf:type owl:NamedIndividual ,
                  gufo:Kind .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/PetrolAc
+:PetrolAc rdf:type owl:NamedIndividual ,
+                   :SippVehicleTypeByFuelAndAirConditioning .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/PetrolNoAc
+:PetrolNoAc rdf:type owl:NamedIndividual ,
+                     :SippVehicleTypeByFuelAndAirConditioning .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Premium
+:Premium rdf:type owl:NamedIndividual ,
+                  :SippVehicleTypeBySize .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/PrivateCustomer
@@ -909,6 +1228,21 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Red
 :Red rdf:type owl:NamedIndividual ,
               :ColorValue .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Special
+:Special rdf:type owl:NamedIndividual ,
+                  :SippVehicleTypeBySize .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Standard
+:Standard rdf:type owl:NamedIndividual ,
+                   :SippVehicleTypeBySize .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/Suv
+:Suv rdf:type owl:NamedIndividual ,
+              :SippVehicleTypeByChassiType .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/Teenager
@@ -933,6 +1267,11 @@ xsd:date rdf:type rdfs:Datatype .
                         :volumeInLiters 520.0 .
 
 
+###  https://purl.org/gufo/tutorial/car-rental/5.0/TwoThreeDoor
+:TwoThreeDoor rdf:type owl:NamedIndividual ,
+                       :SippVehicleTypeByChassiType .
+
+
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/UpdatedExpectedReturnDate
 :UpdatedExpectedReturnDate rdf:type owl:NamedIndividual ,
                                     gufo:QualityValueAttributionSituation ;
@@ -944,14 +1283,23 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/VWTiguan1
 :VWTiguan1 rdf:type owl:NamedIndividual ,
+                    :AutoDrive ,
                     :Automatic ,
-                    :Car ;
+                    :Car ,
+                    :DieselAc ,
+                    :Intermediate ,
+                    :Suv ;
            gufo:standsInQualifiedInstantiation :BrokenVWTiguan1 ,
                                                :OperationalVWTiguan1 ;
            :fuelType :Diesel ;
            :licensePlate "AJ854HR"^^xsd:string ;
            :modelYear "2018"^^xsd:positiveInteger ;
            :sippCode "IFAD"^^xsd:string .
+
+
+###  https://purl.org/gufo/tutorial/car-rental/5.0/WagonState
+:WagonState rdf:type owl:NamedIndividual ,
+                     :SippVehicleTypeByChassiType .
 
 
 ###  https://purl.org/gufo/tutorial/car-rental/5.0/White
@@ -994,6 +1342,126 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 #    General axioms
 #################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AutoAllWheelDrive
+                :AutoDrive
+                :AutoFourWheelDrive
+                :Automatic
+                :BrokenCar
+                :Compact
+                :Coupe
+                :Covertible
+                :Crossover
+                :DieselAc
+                :DieselNoAc
+                :Economy
+                :ElectricAc
+                :ElectricNoAc
+                :FourFiveDoor
+                :Fullsize
+                :HybridAc
+                :HybridNoAc
+                :Intermediate
+                :Luxury
+                :Manual
+                :ManualAllWheelDrive
+                :ManualDrive
+                :ManualFourWheelDrive
+                :Mini
+                :OperationalCar
+                :Oversize
+                :PassengerVan
+                :PetrolAc
+                :PetrolNoAc
+                :Premium
+                :Special
+                :Standard
+                :Suv
+                :TwoThreeDoor
+                :WagonState
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AutoAllWheelDrive
+                :AutoDrive
+                :AutoFourWheelDrive
+                :Automatic
+                :BrokenCar
+                :Compact
+                :Coupe
+                :Covertible
+                :Crossover
+                :Economy
+                :FourFiveDoor
+                :Fullsize
+                :Intermediate
+                :Luxury
+                :Manual
+                :ManualAllWheelDrive
+                :ManualDrive
+                :ManualFourWheelDrive
+                :Mini
+                :OperationalCar
+                :Oversize
+                :PassengerVan
+                :Premium
+                :Special
+                :Standard
+                :Suv
+                :TwoThreeDoor
+                :WagonState
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Automatic
+                :BrokenCar
+                :Compact
+                :Coupe
+                :Covertible
+                :Crossover
+                :Economy
+                :FourFiveDoor
+                :Fullsize
+                :Intermediate
+                :Luxury
+                :Manual
+                :Mini
+                :OperationalCar
+                :Oversize
+                :PassengerVan
+                :Premium
+                :Special
+                :Standard
+                :Suv
+                :TwoThreeDoor
+                :WagonState
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Automatic
+                :BrokenCar
+                :Compact
+                :Economy
+                :Fullsize
+                :Intermediate
+                :Luxury
+                :Manual
+                :Mini
+                :OperationalCar
+                :Oversize
+                :Premium
+                :Special
+                :Standard
+              )
+] .
+
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :Automatic
