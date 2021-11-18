@@ -16,11 +16,11 @@ We will start with a plain ontology on the car rental domain and incrementally "
 
 The outcome of each major step in this tutorial is documented in a branch, which you can checkout and open in your ontology editor of choice.
 
-  * `step1-original`: A plain car rental ontology 
-  * `step2-introductin-gufo`: How to use the taxonomy of individuals
-  * `step3-qualities`: How to use quality patterns
-  * `step4-situations`: How to use situations to represent temporary information.
-  * `step5-types`: How to use the taxonomy of types 
+  * `part-0-baseline`: The baseline for this tutorial, a vanila car rental ontology in OWL.
+  * `part-1-basics`: How to use the taxonomy of individuals
+  * `part-2-1-qualities`: How to use quality patterns
+  * `part-2-2-situations`: How to use situations to represent temporary information.
+  * `part-2-3-types`: How to use the taxonomy of types 
 
 This tutorial was created by:
 
